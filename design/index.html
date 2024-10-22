@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Chatbot Service</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .search-bar {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        font-size: 16px;
+      }
+
+      .chatbot-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .chatbot-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .chatbot-card img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+      }
+
+      .chatbot-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .chatbot-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .chatbot-card button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .chatbot-card button:hover {
+        background-color: #0056b3;
+      }
+
+      .footer {
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Multi-Chatbot Service</h1>
+      </div>
+
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="Search for a chatbot service..."
+      />
+
+      <div class="chatbot-grid">
+        <div class="chatbot-card">
+          <img
+            src="https://via.placeholder.com/60"
+            alt="Cooking Chatbot Icon"
+          />
+          <h3>Cooking Chatbot</h3>
+          <p>Find recipes, meal suggestions, and more.</p>
+          <button>Start Chat</button>
+        </div>
+        <div class="chatbot-card">
+          <img src="https://via.placeholder.com/60" alt="Hafez Chatbot Icon" />
+          <h3>Hafez Chatbot</h3>
+          <p>Get a reading from Hafez's poetry.</p>
+          <button>Start Chat</button>
+        </div>
+        <div class="chatbot-card">
+          <img
+            src="https://via.placeholder.com/60"
+            alt="Interview Chatbot Icon"
+          />
+          <h3>Position Interviewer</h3>
+          <p>Practice your interview skills.</p>
+          <button>Start Chat</button>
+        </div>
+        <div class="chatbot-card">
+          <img src="https://via.placeholder.com/60" alt="Travel Guide Icon" />
+          <h3>Travel Guide</h3>
+          <p>Explore nearby attractions and more.</p>
+          <button>Start Chat</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2024 Multi-Chatbot Service. All Rights Reserved.</p>
+    </div>
+  </body>
+</html>

@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from '@/assets/logo.svg';
+import { ChatbotCard } from '@/components/layouts/chatbot-card';
 import { Head } from '@/components/seo';
-import { Button } from '@/components/ui/button';
 import { useUser } from '@/lib/auth';
 
 export const LandingRoute = () => {
   const navigate = useNavigate();
   const user = useUser();
+
+  // حالت‌های جستجو و تگ
+  const [searchTerm, setSearchTerm] = useState('');
+  const [taggedChatbots, setTaggedChatbots] = useState<string[]>([]);
 
   const handleStart = () => {
     if (user.data) {
@@ -17,66 +21,212 @@ export const LandingRoute = () => {
     }
   };
 
+  // مدیریت تگ کردن چت‌بات‌ها
+  const handleTag = (title: string) => {
+    setTaggedChatbots((prev) =>
+      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title],
+    );
+  };
+
+  // لیست کامل چت‌بات‌ها
+  const chatbots = [
+    {
+      title: 'خوالیگر شیرازی',
+      description: 'سوالات آشپزی و تاریخچه غذا را اینجا بپرس',
+      imageUrl: 'https://via.placeholder.com/150',
+    },
+    {
+      title: 'چت بات سلامتی',
+      description: 'سوالات مرتبط با سلامت و رژیم غذایی را بپرس',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'چت بات گردشگری',
+      description: 'راهنمای سفر و معرفی مکان‌های دیدنی',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'چت بات یادگیری',
+      description: 'آموزش و یادگیری در موضوعات مختلف',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'چت بات موسیقی',
+      description: 'بحث و گفتگو درباره موسیقی و هنرمندان',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'چت بات کتاب‌ها',
+      description: 'بررسی و معرفی کتاب‌های معروف',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'حافظ',
+      description: 'با اشعار و غزلیات حافظ به دنیای عشق و عرفان وارد شوید',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'شخصیت‌پرداز',
+      description:
+        'با شخصیت‌های محبوب داستانی، فیلم و ادبیات به سبک و لحن خودشان گفتگو کنید.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'تبلیغ‌ساز',
+      description:
+        'مپین‌های تبلیغاتی خلاقانه بسازید و پیام‌های موثر برای مخاطبان خود ایجاد کنید.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'داستان‌گو',
+      description:
+        'داستان‌های جذاب و خیال‌انگیز روایت کنید و شنوندگان را به دنیای قصه‌ها ببرید.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'گزارشگر فوتبال',
+      description:
+        'گزارش زنده و هیجان‌انگیز مسابقات فوتبال با تحلیل‌های دقیق و شور و شوق.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'استندآپ کمدین',
+      description:
+        ' شوخی‌های بامزه و اجراهای خنده‌دار برای لحظاتی پر از خنده و شادی.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'مربی انگیزشی',
+      description:
+        'با انرژی مثبت و جملات الهام‌بخش، شما را به سوی موفقیت و پیشرفت هدایت می‌کند.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'آهنگساز',
+      description:
+        'ساخت ملودی‌ها و قطعات موسیقی دلنشین برای لحظاتی پر از احساس و الهام.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'مناظره‌گر',
+      description:
+        ' با استدلال‌های قوی و تحلیل‌های منطقی، در بحث‌ها و مناظره‌ها پیروز شوید.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'قاری قرآن',
+      description:
+        'تلاوت آیات قرآن کریم و ارائه تفاسیر و راهنمایی‌های روح‌بخش.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'هومن امینی',
+      description:
+        'گفت‌وگوهای تخصصی درباره برنامه‌نویسی، تکنولوژی‌های نوین و چالش‌های مهندسی نرم‌افزار',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'دکتر',
+      description:
+        'مشاوره پزشکی و توصیه‌های سلامت برای بهبود و مراقبت از بدن و ذهن.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'حضرت علی (ع)',
+      description:
+        'سخنان حکمت‌آمیز و رهنمودهای الهام‌بخش از امیرالمؤمنین حضرت علی (ع).',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'کوهنورد',
+      description:
+        'تجربه‌های ماجراجویانه و نکات حرفه‌ای برای فتح قله‌ها و پیمایش مسیرهای کوهستانی.',
+
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'هواشناس',
+      description:
+        'یش‌بینی وضعیت آب‌وهوا و ارائه اطلاعات دقیق جوی برای برنامه‌ریزی بهتر.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'شاعر',
+      description:
+        'سرودن اشعار لطیف و دلنشین که روح را به دنیای ادبیات و احساس می‌برد.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+    {
+      title: 'سانیار',
+      description:
+        'راهکاری جامع برای مدیریت و بهینه‌سازی پرداخت‌های الکترونیک و مالی کسب‌وکارها.',
+      imageUrl: 'https://via.placeholder.com/150',
+      disabled: true,
+    },
+  ];
+
+  // مرتب‌سازی: تگ‌شده‌ها را به بالا منتقل می‌کند
+  const sortedChatbots = [
+    ...chatbots.filter((chatbot) => taggedChatbots.includes(chatbot.title)),
+    ...chatbots.filter((chatbot) => !taggedChatbots.includes(chatbot.title)),
+  ];
+
+  // فیلتر کردن چت‌بات‌ها بر اساس جستجو
+  const filteredChatbots = sortedChatbots.filter(
+    (chatbot) =>
+      chatbot.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      chatbot.description.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <>
-      <Head description="Welcome to bulletproof react" />
-      <div className="flex h-screen items-center bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-16">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span className="block">Bulletproof React</span>
-          </h2>
-          <img src={logo} alt="react" />
-          <p>Showcasing Best Practices For Building React Applications</p>
-          <div className="mt-8 flex justify-center">
-            <div className="inline-flex rounded-md shadow">
-              <Button
-                onClick={handleStart}
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                }
-              >
-                Get started
-              </Button>
-            </div>
-            <div className="ml-3 inline-flex">
-              <a
-                href="https://github.com/alan2207/bulletproof-react"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  variant="outline"
-                  icon={
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="size-6"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  }
-                >
-                  Github Repo
-                </Button>
-              </a>
-            </div>
+      <Head description="به همگفت خوش آمدید" />
+      <div className="flex h-full flex-col items-center bg-white">
+        <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:p-8">
+          {/* بخش جستجو */}
+          <input
+            type="text"
+            placeholder="چت‌بات مورد نظر خود را جستجو کنید..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="mb-8 w-full rounded-md border border-gray-300 p-2"
+          />
+
+          {/* گرید چت‌بات‌ها */}
+          <div className="grid w-full grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredChatbots.map((chatbot, index) => (
+              <ChatbotCard
+                key={index}
+                title={chatbot.title}
+                description={chatbot.description}
+                imageUrl={chatbot.imageUrl}
+                onStart={handleStart}
+                disabled={chatbot.disabled}
+                onTag={() => handleTag(chatbot.title)}
+                isTagged={taggedChatbots.includes(chatbot.title)}
+              />
+            ))}
           </div>
         </div>
       </div>

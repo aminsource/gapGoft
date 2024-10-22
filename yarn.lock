@@ -1446,7 +1446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.24.1, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.24.5
   resolution: "@babel/runtime@npm:7.24.5"
   dependencies:
@@ -5595,7 +5595,7 @@ __metadata:
     js-cookie: ^3.0.5
     jsdom: ^24.0.0
     lint-staged: ^15.2.2
-    lucide-react: ^0.378.0
+    lucide-react: ^0.453.0
     marked: ^12.0.2
     msw: ^2.2.14
     nanoid: ^5.0.7
@@ -5613,7 +5613,7 @@ __metadata:
     react-query-auth: ^2.3.0
     react-router-dom: ^6.23.0
     storybook: ^8.0.9
-    tailwind-merge: ^2.3.0
+    tailwind-merge: ^2.5.4
     tailwindcss: ^3.4.3
     tailwindcss-animate: ^1.0.7
     typescript: ^5.4.5
@@ -10232,12 +10232,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.378.0":
-  version: 0.378.0
-  resolution: "lucide-react@npm:0.378.0"
+"lucide-react@npm:^0.453.0":
+  version: 0.453.0
+  resolution: "lucide-react@npm:0.453.0"
   peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: d1ea33e7fcdd42edf90d12777d158204bde0a99d7e6006699206fa0a8b5326d2ef21ba9345c193a18b5c7b08613bf10161dc73b76111ebb9872f1683b04d629c
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
+  checksum: 1a48153fd9338266d8bb14c735bfe8bfb046c505ab91421586cbae0a8ac1924536e813d430d1f91c883bb4ea67f0664bfca273f58e478438f0ad8f8f09fced76
   languageName: node
   linkType: hard
 
@@ -13804,12 +13804,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "tailwind-merge@npm:2.3.0"
-  dependencies:
-    "@babel/runtime": ^7.24.1
-  checksum: 1254eea9b6ec480911f01e2909e3ba35ca3c534d9db1405dfe9bdf51d100663a3935cb20662c023ab44ee9679bce10d86bd27beba23d0174beff32a6acb06978
+"tailwind-merge@npm:^2.5.4":
+  version: 2.5.4
+  resolution: "tailwind-merge@npm:2.5.4"
+  checksum: c22adafebd23fc3c7f0ad25935791c10816d4a46460f000ebca4de8d8d22f7652a3746a3d9146599a4648aa92ab390340f6ded04b9152afd2b75fd96929399db
   languageName: node
   linkType: hard
 
