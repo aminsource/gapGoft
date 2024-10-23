@@ -13,9 +13,9 @@ export const LandingRoute = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [taggedChatbots, setTaggedChatbots] = useState<string[]>([]);
 
-  const handleStart = () => {
+  const handleStart = (url: string) => {
     if (user.data) {
-      navigate('/app');
+      navigate(url);
     } else {
       navigate('/auth/login');
     }
@@ -31,45 +31,52 @@ export const LandingRoute = () => {
   // لیست کامل چت‌بات‌ها
   const chatbots = [
     {
-      title: 'خوالیگر شیرازی',
+      title: 'خوالیگر ',
       description: 'سوالات آشپزی و تاریخچه غذا را اینجا بپرس',
       imageUrl: 'https://via.placeholder.com/150',
+      url: '/app/khaligar',
     },
     {
-      title: 'چت بات سلامتی',
+      title: ' سلامتی',
       description: 'سوالات مرتبط با سلامت و رژیم غذایی را بپرس',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
-      title: 'چت بات گردشگری',
+      title: ' گردشگری',
       description: 'راهنمای سفر و معرفی مکان‌های دیدنی',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
-      title: 'چت بات یادگیری',
+      title: ' یادگیری',
       description: 'آموزش و یادگیری در موضوعات مختلف',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
-      title: 'چت بات موسیقی',
+      title: ' موسیقی',
       description: 'بحث و گفتگو درباره موسیقی و هنرمندان',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
-      title: 'چت بات کتاب‌ها',
+      title: ' کتاب‌ها',
       description: 'بررسی و معرفی کتاب‌های معروف',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'حافظ',
       description: 'با اشعار و غزلیات حافظ به دنیای عشق و عرفان وارد شوید',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'شخصیت‌پرداز',
@@ -77,6 +84,7 @@ export const LandingRoute = () => {
         'با شخصیت‌های محبوب داستانی، فیلم و ادبیات به سبک و لحن خودشان گفتگو کنید.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'تبلیغ‌ساز',
@@ -84,6 +92,7 @@ export const LandingRoute = () => {
         'مپین‌های تبلیغاتی خلاقانه بسازید و پیام‌های موثر برای مخاطبان خود ایجاد کنید.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'داستان‌گو',
@@ -91,6 +100,7 @@ export const LandingRoute = () => {
         'داستان‌های جذاب و خیال‌انگیز روایت کنید و شنوندگان را به دنیای قصه‌ها ببرید.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'گزارشگر فوتبال',
@@ -98,6 +108,7 @@ export const LandingRoute = () => {
         'گزارش زنده و هیجان‌انگیز مسابقات فوتبال با تحلیل‌های دقیق و شور و شوق.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'استندآپ کمدین',
@@ -105,6 +116,7 @@ export const LandingRoute = () => {
         ' شوخی‌های بامزه و اجراهای خنده‌دار برای لحظاتی پر از خنده و شادی.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'مربی انگیزشی',
@@ -112,6 +124,7 @@ export const LandingRoute = () => {
         'با انرژی مثبت و جملات الهام‌بخش، شما را به سوی موفقیت و پیشرفت هدایت می‌کند.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'آهنگساز',
@@ -119,6 +132,7 @@ export const LandingRoute = () => {
         'ساخت ملودی‌ها و قطعات موسیقی دلنشین برای لحظاتی پر از احساس و الهام.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'مناظره‌گر',
@@ -126,6 +140,7 @@ export const LandingRoute = () => {
         ' با استدلال‌های قوی و تحلیل‌های منطقی، در بحث‌ها و مناظره‌ها پیروز شوید.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'قاری قرآن',
@@ -133,6 +148,7 @@ export const LandingRoute = () => {
         'تلاوت آیات قرآن کریم و ارائه تفاسیر و راهنمایی‌های روح‌بخش.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'هومن امینی',
@@ -140,13 +156,15 @@ export const LandingRoute = () => {
         'گفت‌وگوهای تخصصی درباره برنامه‌نویسی، تکنولوژی‌های نوین و چالش‌های مهندسی نرم‌افزار',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
-      title: 'دکتر',
+      title: 'پزشک',
       description:
         'مشاوره پزشکی و توصیه‌های سلامت برای بهبود و مراقبت از بدن و ذهن.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'حضرت علی (ع)',
@@ -154,6 +172,7 @@ export const LandingRoute = () => {
         'سخنان حکمت‌آمیز و رهنمودهای الهام‌بخش از امیرالمؤمنین حضرت علی (ع).',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'کوهنورد',
@@ -162,6 +181,7 @@ export const LandingRoute = () => {
 
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'هواشناس',
@@ -169,6 +189,7 @@ export const LandingRoute = () => {
         'یش‌بینی وضعیت آب‌وهوا و ارائه اطلاعات دقیق جوی برای برنامه‌ریزی بهتر.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'شاعر',
@@ -176,6 +197,7 @@ export const LandingRoute = () => {
         'سرودن اشعار لطیف و دلنشین که روح را به دنیای ادبیات و احساس می‌برد.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
     {
       title: 'سانیار',
@@ -183,6 +205,7 @@ export const LandingRoute = () => {
         'راهکاری جامع برای مدیریت و بهینه‌سازی پرداخت‌های الکترونیک و مالی کسب‌وکارها.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
+      url: '/app',
     },
   ];
 
@@ -221,7 +244,7 @@ export const LandingRoute = () => {
                 title={chatbot.title}
                 description={chatbot.description}
                 imageUrl={chatbot.imageUrl}
-                onStart={handleStart}
+                onStart={() => handleStart(chatbot.url)}
                 disabled={chatbot.disabled}
                 onTag={() => handleTag(chatbot.title)}
                 isTagged={taggedChatbots.includes(chatbot.title)}

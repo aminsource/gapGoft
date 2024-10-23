@@ -10,9 +10,20 @@ import { api } from './api-client';
 // these are not part of features as this is a module shared across features
 
 const getUser = async (): Promise<User> => {
-  const response = await api.get('/auth/me');
+  // const response = await api.get('/auth/me');
 
-  return response.data;
+  return await new Promise((resolve) =>
+    resolve({
+      id: 'KAsRgOzxP6qb8wfSiyYf5',
+      firstName: 'Hooman',
+      lastName: 'Amini',
+      email: 'amini.hooman@gmail.com',
+      teamId: 'xQHQQLhgPQeqckSPcFhV-',
+      role: 'ADMIN',
+      bio: '',
+      createdAt: 1729552293687,
+    }),
+  );
 };
 
 const logout = (): Promise<void> => {

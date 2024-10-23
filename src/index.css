@@ -4,65 +4,67 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 38 100% 97%; /* Very light, warm background */
+    --foreground: 30 30% 15%; /* Dark, earthy orange for readability */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 38 100% 100%; /* Pure white for cards */
+    --card-foreground: 30 30% 15%; /* Darker for text readability */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 38 100% 100%;
+    --popover-foreground: 30 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 30 100% 50%; /* Bright, vibrant orange for primary elements */
+    --primary-foreground: 30 20% 98%; /* Light cream for contrast */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 38 100% 88%; /* Soft, peachy orange for secondary elements */
+    --secondary-foreground: 30 30% 15%; /* Darker text on lighter backgrounds */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 40% 95%; /* Subtle, muted light orange for background sections */
+    --muted-foreground: 30 20% 40%; /* Warm brown for muted text */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 18 90% 60%; /* Rich, deeper orange for accents */
+    --accent-foreground: 30 20% 98%; /* Light cream for contrast */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 55%; /* Warm red-orange for destructive actions */
+    --destructive-foreground: 30 20% 98%; /* Light cream for warning texts */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 20% 85%; /* Subtle, warm border color */
+    --input: 30 20% 85%; /* Consistent with border for inputs */
+    --ring: 30 100% 50%; /* Bright orange for focus rings */
 
-    --radius: 0.5rem;
+    --radius: 1rem; /* More rounded corners for a softer, modern feel */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 30 30% 10%; /* Deep, dark orange-gray for dark mode */
+    --foreground: 30 40% 90%; /* Light, warm cream for readability */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 30% 15%; /* Slightly lighter than background for cards */
+    --card-foreground: 30 40% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 30% 15%;
+    --popover-foreground: 30 40% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 38 90% 65%; /* Bright, strong orange for emphasis */
+    --primary-foreground: 30 20% 98%; /* Light cream for contrast */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 38 50% 30%; /* Darker, muted orange for secondary elements */
+    --secondary-foreground: 30 40% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 30 30% 20%; /* Darker muted orange for subtle sections */
+    --muted-foreground: 30 20% 70%; /* Light warm gray for muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 18 80% 60%; /* Deep, rich orange-red for accents */
+    --accent-foreground: 30 20% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%; /* Strong red-orange for destructive actions */
+    --destructive-foreground: 30 40% 90%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 30 20% 25%; /* Subtle dark orange for borders */
+    --input: 30 20% 25%;
+    --ring: 30 100% 65%; /* Bright orange focus ring */
+
+    --radius: 1rem; /* Consistent rounded corners */
   }
 }
 
@@ -77,12 +79,163 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'dana';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'ss02';
+  -webkit-font-feature-settings: 'ss02';
+  font-feature-settings: 'ss02';
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: dana;
+}
+
+@font-face {
+  font-family: dana;
+  font-weight: 400;
+  src: url('./assets/font/is.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 10;
+  src:
+    url('./assets/font/woff2/Dana-Hairline.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Hairline.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 100;
+  src:
+    url('./assets/font/woff2/Dana-Thin.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Thin.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 200;
+  src:
+    url('./assets/font/woff2/Dana-UltraLight.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/
+      url('./assets/font/woff/Dana-UltraLight.woff') format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 300;
+  src:
+    url('./assets/font/woff2/Dana-Light.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Light.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 500;
+  src:
+    url('./assets/font/woff2/Dana-Medium.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Medium.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url('./assets/font/woff2/Dana-DemiBold.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-DemiBold.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 800;
+  src:
+    url('./assets/font/woff2/Dana-ExtraBold.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-ExtraBold.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 900;
+  src:
+    url('./assets/font/woff2/Dana-Black.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Black.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 930;
+  src:
+    url('./assets/font/woff2/Dana-ExtraBlack.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/
+      url('./assets/font/woff/Dana-ExtraBlack.woff') format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 960;
+  src:
+    url('./assets/font/woff2/Dana-Heavy.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Heavy.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: 990;
+  src:
+    url('./assets/font/woff2/Dana-Fat.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Fat.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: bold;
+  src:
+    url('./assets/font/woff2/Dana-Bold.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Bold.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+  font-family: dana;
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./assets/font/woff2/Dana-Regular.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/ url('./assets/font/woff/Dana-Regular.woff')
+      format('woff');
+  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }

@@ -1,5 +1,4 @@
-import { ChatBubbleIcon } from '@radix-ui/react-icons';
-import { Tag, Tags } from 'lucide-react';
+import { MessageCircle, Tag } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -55,8 +54,8 @@ export const ChatbotCard: React.FC<CookingChatbotCardProps> = ({
           disabled={disabled} // Disable the button if the card is disabled
         >
           <div className="flex items-center justify-center">
-            <ChatBubbleIcon className="ml-2" />
-            چت
+            <MessageCircle size={30} className="ml-2" />
+            گفتگو
           </div>
         </Button>
       </CardFooter>

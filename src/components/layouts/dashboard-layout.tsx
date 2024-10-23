@@ -78,18 +78,18 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { checkAccess } = useAuthorization();
   const navigate = useNavigate();
   const navigation = [
-    { name: 'Dashboard', to: '.', icon: Home },
-    { name: 'Discussions', to: './discussions', icon: Folder },
-    checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
-      name: 'Users',
-      to: './users',
-      icon: Users,
-    },
+    // { name: 'Dashboard', to: '.', icon: Home },
+    // { name: 'Discussions', to: './discussions', icon: Folder },
+    // checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
+    //   name: 'Users',
+    //   to: './users',
+    //   icon: Users,
+    // },
   ].filter(Boolean) as SideNavigationItem[];
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-60 flex-col border-r bg-black sm:flex">
+      <aside className="fixed inset-y-0 right-0 z-10 hidden w-60 flex-col border-r bg-black sm:flex">
         <nav className="flex flex-col items-center gap-4 px-2 py-4">
           <div className="flex h-16 shrink-0 items-center px-4">
             <Logo />
@@ -119,7 +119,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
       </aside>
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-60">
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pr-60">
         <header className="sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:justify-end sm:border-0 sm:bg-transparent sm:px-6">
           <Progress />
           <Drawer>
@@ -179,14 +179,14 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                 onClick={() => navigate('./profile')}
                 className={cn('block px-4 py-2 text-sm text-gray-700')}
               >
-                Your Profile
+                پروفایل شما
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className={cn('block px-4 py-2 text-sm text-gray-700 w-full')}
                 onClick={() => logout.mutate({})}
               >
-                Sign Out
+                خروج
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

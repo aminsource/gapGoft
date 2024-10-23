@@ -42,6 +42,20 @@ export const createAppRouter = (queryClient: QueryClient) =>
       ),
       children: [
         {
+          path: 'khaligar',
+          lazy: async () => {
+            const { khaligar } = await import('./routes/app/khaligar');
+            return { Component: khaligar };
+          },
+          // loader: async (args: LoaderFunctionArgs) => {
+          //   const { discussionsLoader } = await import(
+          //     './routes/app/discussions/discussions'
+          //   );
+          //   return discussionsLoader(queryClient)(args);
+          // },
+        },
+
+        {
           path: 'discussions',
           lazy: async () => {
             const { DiscussionsRoute } = await import(
