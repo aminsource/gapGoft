@@ -54,6 +54,19 @@ export const createAppRouter = (queryClient: QueryClient) =>
           //   return discussionsLoader(queryClient)(args);
           // },
         },
+        {
+          path: 'advertise',
+          lazy: async () => {
+            const { advertise } = await import('./routes/app/advertise');
+            return { Component: advertise };
+          },
+          // loader: async (args: LoaderFunctionArgs) => {
+          //   const { discussionsLoader } = await import(
+          //     './routes/app/discussions/discussions'
+          //   );
+          //   return discussionsLoader(queryClient)(args);
+          // },
+        },
 
         {
           path: 'discussions',

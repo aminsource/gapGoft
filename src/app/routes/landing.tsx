@@ -31,11 +31,19 @@ export const LandingRoute = () => {
   // لیست کامل چت‌بات‌ها
   const chatbots = [
     {
-      title: 'خوالیگر ',
+      title: 'آشپز',
       description: 'سوالات آشپزی و تاریخچه غذا را اینجا بپرس',
       imageUrl: 'https://via.placeholder.com/150',
       url: '/app/khaligar',
     },
+    {
+      title: 'تبلیغ‌ساز',
+      description: 'کمپین‌های تبلیغاتی خلاقانه بسازید .',
+      imageUrl: 'https://via.placeholder.com/150',
+
+      url: '/app/advertise',
+    },
+
     {
       title: ' سلامتی',
       description: 'سوالات مرتبط با سلامت و رژیم غذایی را بپرس',
@@ -82,14 +90,6 @@ export const LandingRoute = () => {
       title: 'شخصیت‌پرداز',
       description:
         'با شخصیت‌های محبوب داستانی، فیلم و ادبیات به سبک و لحن خودشان گفتگو کنید.',
-      imageUrl: 'https://via.placeholder.com/150',
-      disabled: true,
-      url: '/app',
-    },
-    {
-      title: 'تبلیغ‌ساز',
-      description:
-        'مپین‌های تبلیغاتی خلاقانه بسازید و پیام‌های موثر برای مخاطبان خود ایجاد کنید.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
       url: '/app',
