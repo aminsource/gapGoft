@@ -67,38 +67,6 @@ export const createAppRouter = (queryClient: QueryClient) =>
           //   return discussionsLoader(queryClient)(args);
           // },
         },
-
-        {
-          path: 'discussions',
-          lazy: async () => {
-            const { DiscussionsRoute } = await import(
-              './routes/app/discussions/discussions'
-            );
-            return { Component: DiscussionsRoute };
-          },
-          loader: async (args: LoaderFunctionArgs) => {
-            const { discussionsLoader } = await import(
-              './routes/app/discussions/discussions'
-            );
-            return discussionsLoader(queryClient)(args);
-          },
-        },
-        {
-          path: 'discussions/:discussionId',
-          lazy: async () => {
-            const { DiscussionRoute } = await import(
-              './routes/app/discussions/discussion'
-            );
-            return { Component: DiscussionRoute };
-          },
-
-          loader: async (args: LoaderFunctionArgs) => {
-            const { discussionLoader } = await import(
-              './routes/app/discussions/discussion'
-            );
-            return discussionLoader(queryClient)(args);
-          },
-        },
         {
           path: 'users',
           lazy: async () => {

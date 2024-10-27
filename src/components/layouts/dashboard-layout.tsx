@@ -6,7 +6,7 @@ import logo from '@/assets/logo.svg';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { useLogout } from '@/lib/auth';
-import { ROLES, useAuthorization } from '@/lib/authorization';
+// import { ROLES, useAuthorization } from '@/lib/authorization';
 import { cn } from '@/utils/cn';
 
 import {
@@ -75,7 +75,7 @@ const Progress = () => {
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const logout = useLogout();
-  const { checkAccess } = useAuthorization();
+  // const { checkAccess } = useAuthorization();
   const navigate = useNavigate();
   const navigation = [
     // { name: 'Dashboard', to: '.', icon: Home },

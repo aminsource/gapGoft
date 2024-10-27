@@ -143,7 +143,7 @@ export const LandingRoute = () => {
       url: '/app',
     },
     {
-      title: 'قاری قرآن',
+      title: 'قرآن',
       description:
         'تلاوت آیات قرآن کریم و ارائه تفاسیر و راهنمایی‌های روح‌بخش.',
       imageUrl: 'https://via.placeholder.com/150',
