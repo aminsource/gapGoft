@@ -27,7 +27,11 @@ export const createChat = ({
 }: {
   data: CreateChatInput;
 }): Promise<any> => {
-  return api.post(`/api/v1/openai/chat/${data.userId}`, data);
+  return api.post(`/api/v1/openai/chat/${data.userId}`, data, {
+    headers: {
+      Authorization: localStorage.getItem('authToken'),
+    },
+  });
 };
 
 // Define the custom hook options type

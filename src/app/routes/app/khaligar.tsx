@@ -5,7 +5,7 @@ import { KhaligarChatForm } from '@/features/khaligar/components/khaligar-chat-f
 
 export const khaligar = () => {
   return (
-    <ContentLayout title="خوالیگر شیرازی">
+    <ContentLayout title="آشپز">
       <KhaligarChatForm />
     </ContentLayout>
   );

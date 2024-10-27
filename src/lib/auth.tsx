@@ -9,61 +9,52 @@ import { api } from './api-client';
 // api call definitions for auth (types, schemas, requests):
 // these are not part of features as this is a module shared across features
 
-const getUser = async (): Promise<User> => {
-  // const response = await api.get('/auth/me');
-
-  return await new Promise((resolve) =>
-    resolve({
-      id: 'KAsRgOzxP6qb8wfSiyYf5',
-      firstName: 'Hooman',
-      lastName: 'Amini',
-      email: 'amini.hooman@gmail.com',
-      teamId: 'xQHQQLhgPQeqckSPcFhV-',
-      role: 'ADMIN',
-      bio: '',
-      createdAt: 1729552293687,
-    }),
-  );
+const getUser = async (): Promise<User | null> => {
+  try {
+    const response = await api.get('/auth/profile', {
+      headers: {
+        Authorization: localStorage.getItem('authToken'),
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error('Failed to get user:', error);
+    return null;
+  }
 };
 
-const logout = (): Promise<void> => {
-  return api.post('/auth/logout');
+const logout = async (): Promise<void> => {
+  try {
+    localStorage.removeItem('authToken');
+    return await Promise.resolve();
+  } catch (error) {
+    console.error('Logout failed:', error);
+  }
 };
 
 export const loginInputSchema = z.object({
-  email: z.string().min(1, 'Required').email('Invalid email'),
+  username: z.string().min(1, 'Required').email('Invalid email'),
   password: z.string().min(5, 'Required'),
 });
 
 export type LoginInput = z.infer<typeof loginInputSchema>;
-const loginWithEmailAndPassword = (data: LoginInput): Promise<AuthResponse> => {
+const loginWithUsernameAndPassword = (
+  data: LoginInput,
+): Promise<AuthResponse> => {
   return api.post('/auth/login', data);
 };
 
-export const registerInputSchema = z
-  .object({
-    email: z.string().min(1, 'Required'),
-    firstName: z.string().min(1, 'Required'),
-    lastName: z.string().min(1, 'Required'),
-    password: z.string().min(1, 'Required'),
-  })
-  .and(
-    z
-      .object({
-        teamId: z.string().min(1, 'Required'),
-        teamName: z.null().default(null),
-      })
-      .or(
-        z.object({
-          teamName: z.string().min(1, 'Required'),
-          teamId: z.null().default(null),
-        }),
-      ),
-  );
+export const registerInputSchema = z.object({
+  username: z.string().min(1, 'Required'),
+  firstName: z.string().min(1, 'Required'),
+  lastName: z.string().min(1, 'Required'),
+  password: z.string().min(1, 'Required'),
+  role: z.string().optional(),
+});
 
 export type RegisterInput = z.infer<typeof registerInputSchema>;
 
-const registerWithEmailAndPassword = (
+const registerWithUsernameAndPassword = (
   data: RegisterInput,
 ): Promise<AuthResponse> => {
   return api.post('/auth/register', data);
@@ -72,12 +63,12 @@ const registerWithEmailAndPassword = (
 const authConfig = {
   userFn: getUser,
   loginFn: async (data: LoginInput) => {
-    const response = await loginWithEmailAndPassword(data);
-    return response.user;
+    const response = await loginWithUsernameAndPassword(data);
+    return response;
   },
   registerFn: async (data: RegisterInput) => {
-    const response = await registerWithEmailAndPassword(data);
-    return response.user;
+    const response = await registerWithUsernameAndPassword(data);
+    return response;
   },
   logoutFn: logout,
 };

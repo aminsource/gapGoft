@@ -10,8 +10,14 @@ type LoginFormProps = {
 
 export const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const login = useLogin({
-    onSuccess,
+    onSuccess: (data) => {
+      if (data) {
+        localStorage.setItem('authToken', `Bearer ${data}`);
+      }
+      onSuccess();
+    },
   });
+
   const [searchParams] = useSearchParams();
   const redirectTo = searchParams.get('redirectTo');
 
@@ -27,13 +33,13 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
           <>
             <Input
               type="email"
-              label="Email Address"
-              error={formState.errors['email']}
-              registration={register('email')}
+              label="آدرس ایمیل"
+              error={formState.errors['username']}
+              registration={register('username')}
             />
             <Input
               type="password"
-              label="Password"
+              label="پسورد"
               error={formState.errors['password']}
               registration={register('password')}
             />
@@ -43,7 +49,7 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
                 type="submit"
                 className="w-full"
               >
-                Log in
+                ورود
               </Button>
             </div>
           </>
@@ -55,7 +61,7 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
             to={`/auth/register${redirectTo ? `?redirectTo=${encodeURIComponent(redirectTo)}` : ''}`}
             className="font-medium text-blue-600 hover:text-blue-500"
           >
-            Register
+            ثبت نام
           </Link>
         </div>
       </div>

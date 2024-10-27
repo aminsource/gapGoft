@@ -19,7 +19,7 @@ export const AuthLayout = ({ children, title }: LayoutProps) => {
 
   useEffect(() => {
     if (user.data) {
-      navigate('/app', {
+      navigate('/', {
         replace: true,
       });
     }
@@ -36,7 +36,7 @@ export const AuthLayout = ({ children, title }: LayoutProps) => {
             </Link>
           </div>
 
-          <h2 className="mt-3 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-3 text-center text-xl font-extrabold text-gray-900">
             {title}
           </h2>
         </div>

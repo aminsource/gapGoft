@@ -20,10 +20,9 @@ export type Meta = {
 export type User = Entity<{
   firstName: string;
   lastName: string;
-  email: string;
+  username: string;
   role: 'ADMIN' | 'USER';
-  teamId: string;
-  bio: string;
+  id: string;
 }>;
 
 export type AuthResponse = {
