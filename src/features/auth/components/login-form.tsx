@@ -14,7 +14,7 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const login = useLogin({
     onSuccess: (response) => {
       if (response) {
-        localStorage.setItem('authToken', `Bearer ${response.result}`);
+        localStorage.setItem('authToken', `Bearer ${response?.result?.token}`);
       }
       onSuccess();
     },
