@@ -1,25 +1,25 @@
-import Axios, { InternalAxiosRequestConfig } from 'axios';
+// Axios configuration with interceptors
+import Axios from 'axios';
 
 import { useNotifications } from '@/components/ui/notifications';
 import { env } from '@/config/env';
-
-function authRequestInterceptor(config: InternalAxiosRequestConfig) {
-  if (config.headers) {
-    config.headers.Accept = 'application/json';
-  }
-  config.withCredentials = true;
-  return config;
-}
+import { getAuthToken } from '@/utils/storage';
 
 export const api = Axios.create({
   baseURL: env.API_URL,
+  withCredentials: true,
+  headers: {
+    Accept: 'application/json',
+  },
 });
 
-api.interceptors.request.use(authRequestInterceptor);
+api.interceptors.request.use((config) => {
+  config.headers.Authorization = getAuthToken();
+  return config;
+});
+
 api.interceptors.response.use(
-  (response) => {
-    return response.data;
-  },
+  (response) => response.data,
   (error) => {
     const message = error.response?.data?.message || error.message;
     useNotifications.getState().addNotification({
@@ -28,11 +28,9 @@ api.interceptors.response.use(
       message,
     });
 
-    // Uncomment if redirection is needed when unauthorized
+    // Uncomment below if redirection is required on unauthorized status
     // if (error.response?.status === 401) {
-    //   const searchParams = new URLSearchParams();
-    //   const redirectTo = searchParams.get('redirectTo');
-    //   window.location.href = `/auth/login?redirectTo=${redirectTo}`;
+    //   window.location.href = `/auth/login?redirectTo=${encodeURIComponent(window.location.pathname)}`;
     // }
 
     return Promise.reject(error);

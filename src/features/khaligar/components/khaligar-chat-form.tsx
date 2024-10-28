@@ -36,7 +36,10 @@ export const KhaligarChatForm = () => {
   const chatMutation = useSendPrompt({
     mutationConfig: {
       onSuccess: (data) => {
-        setMessages((prev) => [...prev, { role: 'assistant', content: data }]);
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', content: data.result },
+        ]);
       },
       onError: () => {
         addNotification({
@@ -64,7 +67,7 @@ export const KhaligarChatForm = () => {
     // Call the API to get the assistant's response
     chatMutation.mutate({
       data: {
-        userId: user.data ? user.data?.id : '',
+        userId: user.data ? user.data?.result?.id : '',
         message: message,
         systemMessageParams: {
           role: 'خانم دستیار آشپز حرفه ای مودب',

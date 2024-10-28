@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Form, Input } from '@/components/ui/form';
+import { useNotifications } from '@/components/ui/notifications';
 import { useRegister, registerInputSchema } from '@/lib/auth';
 
 type RegisterFormProps = {
@@ -10,7 +11,17 @@ type RegisterFormProps = {
 };
 
 export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
-  const registering = useRegister({ onSuccess });
+  const { addNotification } = useNotifications();
+  const registering = useRegister({
+    onSuccess,
+    onError: () => {
+      addNotification({
+        type: 'error',
+        title: 'خطا',
+        message: 'خطا در ثب نام',
+      });
+    },
+  });
   const [searchParams] = useSearchParams();
   const redirectTo = searchParams.get('redirectTo');
 

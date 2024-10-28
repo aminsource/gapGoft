@@ -18,16 +18,21 @@ export type Meta = {
 };
 
 export type User = Entity<{
-  firstName: string;
-  lastName: string;
-  username: string;
-  role: 'ADMIN' | 'USER';
-  id: string;
+  success: boolean;
+  message: string;
+  result: {
+    firstName: string;
+    lastName: string;
+    username: string;
+    role: 'ADMIN' | 'USER';
+    id: string;
+  };
 }>;
 
 export type AuthResponse = {
-  jwt: string;
-  user: User;
+  success: boolean;
+  message: string;
+  result: string;
 };
 
 export type Team = Entity<{

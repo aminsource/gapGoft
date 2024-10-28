@@ -2,6 +2,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Form, Input } from '@/components/ui/form';
+import { useNotifications } from '@/components/ui/notifications';
 import { useLogin, loginInputSchema } from '@/lib/auth';
 
 type LoginFormProps = {
@@ -9,12 +10,20 @@ type LoginFormProps = {
 };
 
 export const LoginForm = ({ onSuccess }: LoginFormProps) => {
+  const { addNotification } = useNotifications();
   const login = useLogin({
-    onSuccess: (data) => {
-      if (data) {
-        localStorage.setItem('authToken', `Bearer ${data}`);
+    onSuccess: (response) => {
+      if (response) {
+        localStorage.setItem('authToken', `Bearer ${response.result}`);
       }
       onSuccess();
+    },
+    onError: () => {
+      addNotification({
+        type: 'error',
+        title: 'خطا',
+        message: 'خطا در ورود',
+      });
     },
   });
 

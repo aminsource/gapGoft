@@ -18,6 +18,7 @@ const Entry = ({ label, value }: EntryProps) => (
 export const ProfileRoute = () => {
   const user = useUser();
   if (!user.data) return null;
+  const { username, role, firstName, lastName } = user.data?.result;
 
   return (
     <ContentLayout title="پروفایل">
@@ -35,10 +36,10 @@ export const ProfileRoute = () => {
         </div>
         <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
           <dl className="sm:divide-y sm:divide-gray-200">
-            <Entry label="نام" value={user.data.firstName} />
-            <Entry label="نام خانوادگی" value={user.data.lastName} />
-            <Entry label="آدرس ایمیل" value={user.data.username} />
-            <Entry label="نقش" value={user.data.role} />
+            <Entry label="نام" value={firstName} />
+            <Entry label="نام خانوادگی" value={lastName} />
+            <Entry label="آدرس ایمیل" value={username} />
+            <Entry label="نقش" value={role} />
           </dl>
         </div>
       </div>
