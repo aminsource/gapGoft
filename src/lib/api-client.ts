@@ -14,7 +14,7 @@ export const api = Axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  config.headers.Authorization = getAuthToken();
+  // config.headers.Authorization = getAuthToken();
   return config;
 });
 

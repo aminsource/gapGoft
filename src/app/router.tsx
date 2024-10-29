@@ -68,6 +68,20 @@ export const createAppRouter = (queryClient: QueryClient) =>
           // },
         },
         {
+          path: 'suniar',
+          lazy: async () => {
+            const { advertise } = await import('./routes/app/suniar');
+            return { Component: advertise };
+          },
+          // loader: async (args: LoaderFunctionArgs) => {
+          //   const { discussionsLoader } = await import(
+          //     './routes/app/discussions/discussions'
+          //   );
+          //   return discussionsLoader(queryClient)(args);
+          // },
+        },
+
+        {
           path: 'users',
           lazy: async () => {
             const { UsersRoute } = await import('./routes/app/users');

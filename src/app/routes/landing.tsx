@@ -38,10 +38,16 @@ export const LandingRoute = () => {
     },
     {
       title: 'تبلیغ‌ساز',
-      description: 'کمپین‌های تبلیغاتی خلاقانه بسازید .',
+      description: 'کمپین‌های تبلیغاتی خلاقانه بسازید',
       imageUrl: 'https://via.placeholder.com/150',
 
       url: '/app/advertise',
+    },
+    {
+      title: 'سانیار',
+      description: 'راهکاری جامع مدیریت پرداخت‌های الکترونیک',
+      imageUrl: 'https://via.placeholder.com/150',
+      url: '/app/suniar',
     },
 
     {
@@ -195,14 +201,6 @@ export const LandingRoute = () => {
       title: 'شاعر',
       description:
         'سرودن اشعار لطیف و دلنشین که روح را به دنیای ادبیات و احساس می‌برد.',
-      imageUrl: 'https://via.placeholder.com/150',
-      disabled: true,
-      url: '/app',
-    },
-    {
-      title: 'سانیار',
-      description:
-        'راهکاری جامع برای مدیریت و بهینه‌سازی پرداخت‌های الکترونیک و مالی کسب‌وکارها.',
       imageUrl: 'https://via.placeholder.com/150',
       disabled: true,
       url: '/app',
