@@ -12,7 +12,7 @@ const testData = {
 };
 
 const schema = z.object({
-  title: z.string().min(1, 'Required'),
+  title: z.string().min(1, 'الزامی '),
 });
 
 test('should render and submit a basic Form component', async () => {
@@ -68,7 +68,7 @@ test('should fail submission if validation fails', async () => {
 
   await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-  await screen.findByRole('alert', { name: /required/i });
+  await screen.findByRole('alert', { name: /الزامی /i });
 
   expect(handleSubmit).toHaveBeenCalledTimes(0);
 });

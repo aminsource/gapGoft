@@ -43,7 +43,7 @@ export const ChatbotCard: React.FC<CookingChatbotCardProps> = ({
           <img
             src={imageUrl}
             alt={`Image of ${title}`}
-            className="rounded-full"
+            className="max-h-[150px] rounded-full"
           />
         </div>
       </CardContent>

@@ -16,9 +16,9 @@ const MyForm = ({ hideSubmit = false }: { hideSubmit?: boolean }) => {
         alert(JSON.stringify(values, null, 2));
       }}
       schema={z.object({
-        title: z.string().min(1, 'Required'),
-        description: z.string().min(1, 'Required'),
-        type: z.string().min(1, 'Required'),
+        title: z.string().min(1, 'الزامی '),
+        description: z.string().min(1, 'الزامی '),
+        type: z.string().min(1, 'الزامی '),
       })}
       id="my-form"
     >

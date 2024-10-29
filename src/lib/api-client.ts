@@ -21,12 +21,12 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    const message = error.response?.data?.message || error.message;
-    useNotifications.getState().addNotification({
-      type: 'error',
-      title: 'Error',
-      message,
-    });
+    // const message = error.response?.data?.message || error.message;
+    // useNotifications.getState().addNotification({
+    //   type: 'error',
+    //   title: 'Error',
+    //   message,
+    // });
 
     // Uncomment below if redirection is required on unauthorized status
     // if (error.response?.status === 401) {

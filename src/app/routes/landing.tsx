@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import advertisingMan from '@/assets/advertisingMan.svg';
+import cooker from '@/assets/cooker.svg';
+import pos from '@/assets/pos.svg';
 import { ChatbotCard } from '@/components/layouts/chatbot-card';
 import { Head } from '@/components/seo';
 import { useUser } from '@/lib/auth';
@@ -33,20 +36,20 @@ export const LandingRoute = () => {
     {
       title: 'آشپز',
       description: 'سوالات آشپزی و تاریخچه غذا را اینجا بپرس',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: cooker,
       url: '/app/khaligar',
     },
     {
       title: 'تبلیغ‌ساز',
       description: 'کمپین‌های تبلیغاتی خلاقانه بسازید',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: advertisingMan,
 
       url: '/app/advertise',
     },
     {
       title: 'سانیار',
       description: 'راهکاری جامع مدیریت پرداخت‌های الکترونیک',
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: pos,
       url: '/app/suniar',
     },
 

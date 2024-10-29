@@ -33,8 +33,8 @@ const logout = async (): Promise<void> => {
 };
 
 export const loginInputSchema = z.object({
-  username: z.string().min(1, 'Required').email('Invalid email'),
-  password: z.string().min(5, 'Required'),
+  username: z.string().min(1, 'الزامی ').email('Invalid email'),
+  password: z.string().min(5, 'الزامی '),
 });
 
 export type LoginInput = z.infer<typeof loginInputSchema>;
@@ -45,10 +45,10 @@ const loginWithUsernameAndPassword = (
 };
 
 export const registerInputSchema = z.object({
-  username: z.string().min(1, 'Required'),
-  firstName: z.string().min(1, 'Required'),
-  lastName: z.string().min(1, 'Required'),
-  password: z.string().min(1, 'Required'),
+  username: z.string().min(1, 'الزامی '),
+  firstName: z.string().min(1, 'الزامی '),
+  lastName: z.string().min(1, 'الزامی '),
+  password: z.string().min(1, 'الزامی '),
   role: z.string().optional(),
 });
 
