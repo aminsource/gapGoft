@@ -225,7 +225,7 @@ export const LandingRoute = () => {
 
   return (
     <>
-      <Head description="به همگفت خوش آمدید" />
+      <Head description="به گپ گفت خوش آمدید" />
       <div className="flex h-full flex-col items-center bg-white">
         <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:p-8">
           {/* بخش جستجو */}

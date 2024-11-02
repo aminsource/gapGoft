@@ -1,9 +1,9 @@
 // Axios configuration with interceptors
 import Axios from 'axios';
 
-import { useNotifications } from '@/components/ui/notifications';
+// import { useNotifications } from '@/components/ui/notifications';
 import { env } from '@/config/env';
-import { getAuthToken } from '@/utils/storage';
+// import { getAuthToken } from '@/utils/storage';
 
 export const api = Axios.create({
   baseURL: env.API_URL,
