@@ -1,37 +1,39 @@
-FROM node:20.13.1 AS development
+# Stage 1: Development
+FROM node:lts AS development
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# 
-COPY package.json /app/package.json
-COPY yarn.lock /app/yarn.lock
+# Copy package files and install dependencies
+COPY package.json yarn.lock ./
+RUN yarn install
 
-# Same as npm install
-RUN yarn install 
+# Copy all source files
+COPY . .
 
-COPY . /app
-
-
+# Stage 2: Build
 FROM development AS build
 
+# Build the production-ready files
 RUN yarn run build
 
-
-
-# For Nginx setup
+# Stage 3: Nginx setup for serving the build
 FROM nginx:alpine
 
-# Copy config nginx
-COPY --from=build /app/.nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom Nginx configuration
+COPY .nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
+# Set working directory to default nginx serving directory
 WORKDIR /usr/share/nginx/html
 
-# Remove default nginx static assets
+# Remove default nginx assets
 RUN rm -rf ./*
 
-# Copy static assets from builder stage
+# Copy built assets from the build stage
 COPY --from=build /app/dist .
 
-# Containers run nginx with global directives and daemon off
+# Expose port 80 for HTTP traffic
+EXPOSE 80
+
+# Run Nginx in the foreground
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
